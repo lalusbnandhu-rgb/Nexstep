@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NexStep Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-left">
+                <li>
+                    <a href="index.html"><img src="home.png" alt="Home"></a>
+                </li>
+                <li>
+                    <a href="resources.html"><img src="resources.png" alt="Resources"></a>
+                </li>
+            </ul>
+            <!-------------------------------------------------------------Center Logo------------------------------------------------------------------------>
+            <a href="index.html" class="nav-center">
+                <img src="logo.png" alt="Logo">
+            </a>
+            <!--------------------------------------------------------Navigation (Right Side)----------------------------------------------------------------->
+            <ul class="nav-right">
+                <li>
+                    <a href="team.html"><img src="team.png" alt="Meet the Team"></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Questionnaire Pages -->
+    <!-- Progress Bar -->
+    <progress id="progress" value="0" max="100"></progress>
+    <p style="text-align: center; color: #9d4edd;">
+        <strong><span id="progressText">0%</span></strong> Complete
+    </p>
+
+    <!-- QUESTION 1 - Using SECTION -->
+    <section id="q1" class="question-section">
+        <h2>Question 1: Your Background</h2>
+
+        <p><strong>What's your current education level?</strong></p>
+        <select id="education">
+            <option value="">Select an option...</option>
+            <option value="gcse">GCSE / Secondary School</option>
+            <option value="alevel">A-Levels / College</option>
+            <option value="btec">BTEC / Vocational</option>
+            <option value="degree">University Degree</option>
+            <option value="other">Other</option>
+        </select>
+
+        <p><strong>Do you have any prior experience with technology?</strong></p>
+        <label>
+            <input type="radio" name="experience" value="none">
+            No experience at all
+        </label>
+        <label>
+            <input type="radio" name="experience" value="basic">
+            Basic computer skills
+        </label>
+        <label>
+            <input type="radio" name="experience" value="some">
+            Some coding or tech projects
+        </label>
+        <label>
+            <input type="radio" name="experience" value="advanced">
+            Advanced technical skills
+        </label>
+
+        <!-- Throws Error if user not filled the question -->
+        <p id="error-q1" class="error">
+            <i class="fas fa-exclamation-triangle" style="color:#FFDF00 "></i>
+            Please answer both questions before proceeding.
+        </p>
+
+        <section style="text-align: center;">
+            <button onclick="validateAndNext(1, 2)">Next <i class="fa-solid fa-arrow-right-long"
+                    style="margin-left: 6px; vertical-align: middle;">
+                </i>
+            </button>
+        </section>
+    </section>
+
+    <!-- QUESTION 2 - Using SECTION -->
+    <section id="q2" class="question-section hidden">
+        <h2>Question 2: What Interests You?</h2>
+
+        <p><strong>Which activities do you enjoy? (Select at least one)</strong></p>
+        <label>
+            <input type="checkbox" name="interests" value="problem-solving">
+            Solving puzzles and logical problems
+        </label>
+        <label>
+            <input type="checkbox" name="interests" value="creative">
+            Creative design and visual arts
+        </label>
+        <label>
+            <input type="checkbox" name="interests" value="data">
+            Working with numbers and data
+        </label>
+        <label>
+            <input type="checkbox" name="interests" value="security">
+            Cybersecurity and protecting systems
+        </label>
+        <label>
+            <input type="checkbox" name="interests" value="building">
+            Building and creating things
+        </label>
+        <label>
+            <input type="checkbox" name="interests" value="helping">
+            Helping people and solving their problems
+        </label>
+
+        <p id="error-q2" class="error">
+            <i class="fas fa-exclamation-triangle" style="color:#FFDF00 "></i>
+            Please select at least one interest.
+        </p>
+
+        <section style="text-align: center;">
+            <button onclick="goToQuestion(1)">
+                <i class="fa-solid fa-arrow-left-long" style="margin-right: 6px; vertical-align: middle;"></i>
+                Back
+            </button>
+            <button onclick="validateAndNext(2, 3)">Next
+                <i class="fa-solid fa-arrow-right-long" style="margin-left: 6px; vertical-align: middle;">
+                </i>
+            </button>
+        </section>
+
+    </section>
+
+    <!-- QUESTION 3 - Using SECTION -->
+    <section id="q3" class="question-section hidden">
+        <h2>Question 3: Your Work Style</h2>
+
+        <p><strong>What type of work environment appeals to you?</strong></p>
+        <label>
+            <input type="radio" name="environment" value="office">
+            Traditional office setting
+        </label>
+        <label>
+            <input type="radio" name="environment" value="remote">
+            Remote / Work from home
+        </label>
+        <label>
+            <input type="radio" name="environment" value="hybrid">
+            Hybrid (mix of both)
+        </label>
+        <label>
+            <input type="radio" name="environment" value="flexible">
+            Flexible / No preference
+        </label>
+
+        <p><strong>Do you prefer working alone or in teams?</strong></p>
+        <label>
+            <input type="radio" name="workstyle" value="alone">
+            Independently / Alone
+        </label>
+        <label>
+            <input type="radio" name="workstyle" value="team">
+            Collaborative / In teams
+        </label>
+        <label>
+            <input type="radio" name="workstyle" value="mix">
+            Mix of both
+        </label>
+
+        <p id="error-q3" class="error">
+            <i class="fas fa-exclamation-triangle" style="color:#FFDF00 "></i>
+            Please answer both questions.
+        </p>
+
+        <section style="text-align: center;">
+            <button onclick="goToQuestion(2)">
+                <i class="fa-solid fa-arrow-left-long" style="margin-right: 6px; vertical-align: middle;"></i>
+                Back
+            </button>
+            <button onclick="validateAndNext(3, 4)">Next <i class="fa-solid fa-arrow-right-long"
+                    style="margin-left: 6px; vertical-align: middle;">
+                </i>
+            </button>
+        </section>
+
+    </section>
+
+    <!-- QUESTION 4 - Using SECTION -->
+    <section id="q4" class="question-section hidden">
+        <h2>Question 4: Your Skills & Strengths</h2>
+
+        <p><strong>Which skills do you consider your strengths? (Select at least one)</strong></p>
+        <label>
+            <input type="checkbox" name="skills" value="mathematics">
+            Mathematics and logic
+        </label>
+        <label>
+            <input type="checkbox" name="skills" value="communication">
+            Communication and presentation
+        </label>
+        <label>
+            <input type="checkbox" name="skills" value="attention">
+            Attention to detail
+        </label>
+        <label>
+            <input type="checkbox" name="skills" value="creativity">
+            Creative thinking
+        </label>
+        <label>
+            <input type="checkbox" name="skills" value="analysis">
+            Analysis and research
+        </label>
+
+        <p id="error-q4" class="error">
+            <i class='fas fa-exclamation-triangle' style='color:#FFDF00'></i>
+            Please select at least one skill.
+        </p>
+
+        <section style="text-align: center;">
+            <button onclick="goToQuestion(3)">
+                <i class="fa-solid fa-arrow-left-long" style="margin-right: 6px; vertical-align: middle;"></i>
+                Back
+            </button>
+            <button onclick="validateAndNext(4, 5)">Next <i class="fa-solid fa-arrow-right-long"
+                    style="margin-left: 6px; vertical-align: middle;">
+                </i>
+            </button>
+        </section>
+
+    </section>
+
+    <!-- QUESTION 5 - Using SECTION -->
+    <section id="q5" class="question-section hidden">
+        <h2>Question 5: Your Career Goals</h2>
+
+        <p><strong>What's most important to you in a career?</strong></p>
+        <label>
+            <input type="radio" name="priority" value="salary">
+            High earning potential
+        </label>
+        <label>
+            <input type="radio" name="priority" value="balance">
+            Work-life balance
+        </label>
+        <label>
+            <input type="radio" name="priority" value="growth">
+            Career growth opportunities
+        </label>
+        <label>
+            <input type="radio" name="priority" value="impact">
+            Making a positive impact
+        </label>
+        <label>
+            <input type="radio" name="priority" value="creative">
+            Creative freedom
+        </label>
+
+        <p><strong>Any additional information you'd like to share? (Optional)</strong></p>
+        <textarea id="additional"
+            placeholder="Tell us anything else that might help us recommend the right career path for you..."></textarea>
+
+        <p id="error-q5" class="error">
+            <i class="fas fa-exclamation-triangle" style="color:#FFDF00 "></i>
+            Please select your career priority.
+        </p>
+
+        <section style="text-align: center;">
+            <button onclick="goToQuestion(4)">
+                <i class="fa-solid fa-arrow-left-long" style="margin-right: 6px; vertical-align: middle;"></i>
+                Back
+            </button>
+            <button onclick="showResults()">Get Results!
+                <span style='font-size:20px;'>&#127919;</span>
+            </button>
+        </section>
+
+    </section>
+
+
+    <!-- LOADING - Using SECTION -->
+    <section id="loading" class="question-section hidden" style="text-align: center; padding: 60px 30px;">
+        <h2 style="color: #9d4edd;">
+            <!-- Hourglass done icon -->
+            <span style='font-size:20px;'>&#8987;</span>
+            Analyzing Your Responses...
+        </h2>
+        <p>
+            <!-- Spinning gear icon -->
+            <i class="fa fa-gear fa-spin" style="font-size:24px"></i>
+            Our AI is finding the perfect tech career match for you
+        </p>
+
+    </section>
+
+    <!-- RESULTS - Using SECTION -->
+    <section id="results" class="question-section hidden">
+        <h2 style="color: white; text-align: center;">Your Personalized Career Match</h2>
+
+        <article class="result-section">
+            <span class="match-badge" id="matchScore">95% Match</span>
+            <h2 id="careerTitle" style="color: white;">Software Developer</h2>
+            <p id="careerDesc" style="line-height: 1.8;"></p>
+
+            <h3 style="color:white; margin-top: 30px;">
+                <span style='font-size:20px;'>&#127919;</span>
+                Why This Matches You
+            </h3>
+            <ul id="whyList" style="line-height: 2;"></ul>
+
+            <h3 style="color:white; margin-top: 30px;">
+                <span style='font-size:20px;'>&#128640;</span>
+                Next Steps
+            </h3>
+            <ul id="stepsList" style="line-height: 2;"></ul>
+        </article>
+
+        <button onclick="location.reload()">Start Over</button>
+        <button onclick="location.href='resources.html'" class="button-style" id="ResourcesButton">
+            View Resources
+        </button>
+    </section>
+
+    <footer class="footer">
+        <nav>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="team.html">Meet the Team</a></li>
+            </ul>
+        </nav>
+        <p class="footer-brand">
+            <img src="accenture-logo.png" alt="Accenture Logo">
+            NexStep - Take the next step
+        </p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexStep Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <!-------------------------------------------------------- Navigation (Left Side) ------------------------------------------------------------------->
+        <nav class="navbar">
+            <ul class="nav-left">
+                <li>
+                    <a href="index.html"><img src="home.png" alt="Home"></a>
+                </li>
+                <li>
+                    <a href="resources.html"><img src="resources.png" alt="Resources"></a>
+                </li>
+            </ul>
+            <!------------------------------------------------------------- Center Logo ------------------------------------------------------------------------>
+            <a href="index.html" class="nav-center">
+                <img src="logo.png" alt="Logo">
+            </a>
+            <!-------------------------------------------------------- Navigation (Right Side) ----------------------------------------------------------------->
+            <ul class="nav-right">
+                <li>
+                    <a href="team.html"><img src="team.png" alt="Meet the Team"></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-------------------------------------------------------- Main body ------------------------------------------------------------------------------->
+    <section class="main">
+        <h1 class="mainHeading">
+            Are you looking for a career in technology?
+            Are you ready to take the NexStep?
+        </h1>
+        <a href="quiz.html" class="takeQuizButton">Take the NexStep</a>
+        <a href="resources.html" class="skipQuizButton"> Take a look at some options</a>
+        <!-- Background video on index -->
+        <video autoplay muted loop class="background-video" id="backgroundVideo">
+            <source src="mainBackground.mp4" type="video/mp4">
+        </video>
+        <!-- Pause button for video -->
+        <button id="pauseButton" class="pause-button">
+            <img id="pauseIcon" src="pause.png" alt="Pause video">
+        </button>
+    </section>
+    <!-------------------------------------------------------- Footer ---------------------------------------------------------------------------------->
+    <footer class="footer">
+        <p class="footerquickLinks"> Quick Links:</p>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="team.html">Meet the Team</a></li>
+                <li><a href="https://www.accenture.com/gb-en">Accenture</a></li>
+            </ul>
+        </nav>
+        <p class="footer-brand">
+            <img src="accenture-logo.png" alt="Accenture Logo">
+            NexStep - Take the next step
+        </p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const video = document.getElementById("backgroundVideo");
+            const pauseButton = document.getElementById("pauseButton");
+            const pauseIcon = document.getElementById("pauseIcon");
+
+            pauseButton.addEventListener("click", function () {
+                if (video.paused) {
+                    video.play();
+                    pauseIcon.src = "pause.png";
+                } else {
+                    video.pause();
+                    pauseIcon.src = "play.png"
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
